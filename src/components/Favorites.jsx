@@ -17,8 +17,8 @@ const Favorites = ({onCloseFav, favoritestItems = []}) => {
                             <b>{i.price}$</b>
                         </div>
                         <img className="removeBtn" src="/img/btn-remove.svg" alt="btn-remove" />
-                    </div>
-                ))}
+                    </div>))
+                }
             </div>
         </div>
     </div>

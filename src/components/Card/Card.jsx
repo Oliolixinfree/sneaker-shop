@@ -19,7 +19,11 @@ const Card = ({title, img, price, onFavorites, onPlus }) => {
 	return (
 		<div className={styles.card}>
 			<div className={styles.favorite}>
-				<img onClick={onClickFavorites} src={isFavorite ? "/img/heart-liked.svg" : "/img/heart-unliked.svg"} alt="btn-unliked" />
+				<img onClick={onClickFavorites} 
+					src={isFavorite 
+					? "/img/liked.svg" 
+					: "/img/unliked.svg"} alt="btn-unliked" 
+				/>
 			</div>
 			<img height={112} width={133} src={img} alt="sneaker" />
 			<h5>{title}</h5>
@@ -28,14 +32,12 @@ const Card = ({title, img, price, onFavorites, onPlus }) => {
 					<span>Цена: </span>
 					<b>{price}$</b>
 				</div>
-				{/* <button className="button" onClick={props.onClickPlus}> */}
-					<img 
-						className={styles.btnPlus}
-						onClick={onClickPlus} 
-						src={isAdded ? "/img/btn-checked.svg" : "/img/btn-plus.svg"} 
-						alt="plus-btn" 
-					/>
-				{/* </button> */}
+				<img 
+					className={styles.btnPlus}
+					onClick={onClickPlus} 
+					src={isAdded ? "/img/btn-checked.svg" : "/img/btn-plus.svg"} 
+					alt="plus-btn" 
+				/>
 			</div>
 		</div>
 	)
