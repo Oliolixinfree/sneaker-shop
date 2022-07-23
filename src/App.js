@@ -1,56 +1,46 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "./components/Card/Card";
 import Drawer from "./components/Drawer";
+import Favorites from "./components/Favorites";
 import Header from "./components/Header";
 
 function App() {
 
-	const [sneakers, setSneakers] = useState([
-		{	
-			id: 1,
-			title: 'Мужские Кроссовки Nike Blazer Mid Suede',
-			img: '/img/sneakers/1.jpg',
-			price: 120,
-		},
-		{	
-			id: 2,
-			title: 'Мужские Кроссовки Nike Air Max 270',
-			img: '/img/sneakers/2.jpg',
-			price: 130,
-		},
-		{	
-			id: 3,
-			title: 'Мужские Кроссовки Nike Blazer Mid Suede',
-			img: '/img/sneakers/3.jpg',
-			price: 80,
-		},
-		{	
-			id: 4,
-			title: 'Кроссовки Puma X Aka Boku Future Rider',
-			img: '/img/sneakers/4.jpg',
-			price: 80,
-		},
-		{	
-			id: 5,
-			title: 'Мужские Кроссовки Under Armour Curry 8',
-			img: '/img/sneakers/5.jpg',
-			price: 150,
-		},
-		{	
-			id: 6,
-			title: 'Мужские Кроссовки Nike Kyrie 7',
-			img: '/img/sneakers/6.jpg',
-			price: 165,
-		},
-	])
-	
+	const [items, setItems] = useState([])
+
+	const [cartOpened, setCartOpend] = useState(false)
+	const [cartItems, setCartItems] = useState([])
+
+	const [favoritesOpened, setFavoritesOpend] = useState(false)
+	const [favoritestItems, setFavoritesItems] = useState([])
+
+	useEffect(() => {
+		// async await/try catch?????
+		fetch('https://62dbd59bd1d97b9e0c54ca6b.mockapi.io/items')
+		.then(resp => {
+			return resp.json()
+		})
+		.then(json => {
+			setItems(json)
+		})
+	}, [])
+
+	const onAddToFavorites = (i) => {
+			setFavoritesItems( prev => [...prev, i])
+	}
+
+	const onAddToCart = (i) => {
+		setCartItems(prev => [...prev, i] )
+	}
+
 	return (
 		<div className="wrapper clear">
-			{/* Корзина */}
-			
-			<Drawer />
-			{/* header */}
-			<Header />
+			{cartOpened ? <Drawer cartItems={cartItems} onClose={() => setCartOpend(false)}  /> : null}
+			{favoritesOpened ? <Favorites favoritestItems={favoritestItems} onCloseFav={() => setFavoritesOpend(false)}  /> : null}
+			<Header 
+				onOpenCart={() => setCartOpend(true)}
+				onOpenFav={() => setFavoritesOpend(true)}
+			/>
 			<div className="content p-40">
 				<div className="d-flex align-center justify-between mb-40">
 					<h1>Все кроссовки</h1>
@@ -61,8 +51,15 @@ function App() {
 				</div>
 				<div className="d-flex flex-wrap">
 					{
-						sneakers.map(i => (
-							<Card key={i.id} title={i.title} img={i.img} price={i.price}  />
+						items.map(i => (
+							<Card 
+								key={i.id} 
+								title={i.title} 
+								img={i.img} 
+								price={i.price}
+								onFavorites={() => {onAddToFavorites(i)}}
+								onPlus={() => onAddToCart(i)}
+							/>
 						))
 					}
 					
