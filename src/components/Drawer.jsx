@@ -1,14 +1,13 @@
-import React, { useContext, useState } from 'react'
-import AppContext from '../context'
+import React, { useState } from 'react'
 import axios from 'axios'
 import Info from './Info'
+import { useCart } from '../hooks/useCart';
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const Drawer = ({onClose, onRemoveCartItem, items = []}) => {
 
-	const {cartItems, setCartItems} = useContext(AppContext)
-
+	const {cartItems, setCartItems, totalPrice} = useCart()
 	const [isOrderComplete, setOrderIsComplete] = useState(false)
 	const [orderId, setOrderId] = useState(null)
 	const [isLoading, setIsLoading] = useState(false)
@@ -24,7 +23,7 @@ const Drawer = ({onClose, onRemoveCartItem, items = []}) => {
 			setOrderId(data.id)
 			setOrderIsComplete(true)
 			setCartItems([])
-			
+
 			// костыль
 			for (let i = 0; i < cartItems.length; i++) {
 				const item = cartItems[i];
@@ -70,12 +69,12 @@ const Drawer = ({onClose, onRemoveCartItem, items = []}) => {
 								<li>
 									<span>Итого:</span>
 									<div></div>
-									<b>21 498$</b>
+									<b>{totalPrice}$</b>
 								</li>
 								<li>
 									<span>Налог 5%:</span>
 									<div></div>
-									<b>1074$</b>
+									<b>{totalPrice * 0.05}$</b>
 								</li>
 							</ul>
 							<button disabled={isLoading} onClick={onClickOrder} className="greenBtn">
