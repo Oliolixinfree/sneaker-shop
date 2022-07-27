@@ -42,13 +42,13 @@ const Card = ({
 				<rect x="123" y="164" rx="10" ry="10" width="32" height="32" />
 			</ContentLoader> :
 			<>
-			<div className={styles.favorite}>
+			{onFavorites && <div className={styles.favorite}>
 				<img onClick={onClickFavorites} 
 					src={isFavorite 
 					? "/img/liked.svg" 
 					: "/img/unliked.svg"} alt="btn-unliked" 
 				/>
-			</div>
+			</div>}
 			<img height={112} width={133} src={img} alt="sneaker" />
 			<h5>{title}</h5>
 			<div className="d-flex justify-between align-center">
@@ -56,12 +56,12 @@ const Card = ({
 					<span>Цена: </span>
 					<b>{price}$</b>
 				</div>
-				<img 
+				{onPlus && <img 
 					className={styles.btnPlus}
 					onClick={onClickPlus} 
 					src={isItemAdded(id) ? "/img/btn-checked.svg" : "/img/btn-plus.svg"} 
 					alt="plus-btn" 
-				/>
+				/>}
 			</div>
 			</>
 		}

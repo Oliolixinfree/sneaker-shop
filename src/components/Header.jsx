@@ -26,15 +26,15 @@ const Header = (props) => {
 					<span>{totalPrice}$</span>
 				</li>
 				<Link to='/favorites'>
-					<li 
-						className='cu-p'
-					>
+					<li className='cu-p'>
 						<img width={18} height={18} src='/img/favorites.svg' alt="favorites-icon" />
 					</li>
 				</Link>
-				<li>
-					<img width={18} height={18} src='/img/user.svg' alt="user-icon" />
-				</li>
+				<Link to='/orders'>
+					<li>
+						<img width={18} height={18} src='/img/user.svg' alt="user-icon" />
+					</li>
+				</Link>
 			</ul>
 		</header>
 	)

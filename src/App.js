@@ -6,6 +6,7 @@ import {Routes, Route} from 'react-router-dom'
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import AppContext from "./context";
+import Orders from "./pages/Orders";
 
 
 function App() {
@@ -80,7 +81,8 @@ function App() {
 			cartItems, 
 			favorites, 
 			isItemAdded, 
-			onAddToFavorite, 
+			onAddToFavorite,
+			onAddToCart,
 			setCartOpend,
 			setCartItems,
 		}}>
@@ -108,6 +110,7 @@ function App() {
 						isLoading={isLoading}
 					/>} />
 					<Route path="/favorites" element={<Favorites />} />
+					<Route path="/orders" element={<Orders />} />
 				</Routes>
 			</div>
 		</AppContext.Provider>
