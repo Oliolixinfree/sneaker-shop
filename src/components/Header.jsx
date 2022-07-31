@@ -10,7 +10,7 @@ const Header = (props) => {
 		<header className="d-flex justify-between align-center p-40">
 			<Link to='/'>
 				<div className="d-flex align-center">
-					<img width={40} height={40} src="/img/logo.png" alt="logo" /> 
+					<img width={40} height={40} src="img/logo.png" alt="logo" /> 
 					<div>
 						<h3 className="text-uppercase">React sneakers</h3>
 						<p className="opacity-5">Магазин лучших кроссовок</p>
@@ -22,17 +22,17 @@ const Header = (props) => {
 					onClick={props.onOpenCart}
 					className="d-flex mr-30 cu-p"
 				>
-					<img width={18} height={18} src='/img/cart.svg' alt="cart" />
+					<img width={18} height={18} src='img/cart.svg' alt="cart" />
 					<span>{totalPrice}$</span>
 				</li>
 				<Link to='/favorites'>
 					<li className='cu-p'>
-						<img width={18} height={18} src='/img/favorites.svg' alt="favorites-icon" />
+						<img width={18} height={18} src='img/favorites.svg' alt="favorites-icon" />
 					</li>
 				</Link>
 				<Link to='/orders'>
 					<li>
-						<img width={18} height={18} src='/img/user.svg' alt="user-icon" />
+						<img width={18} height={18} src='img/user.svg' alt="user-icon" />
 					</li>
 				</Link>
 			</ul>

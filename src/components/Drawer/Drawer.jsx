@@ -43,7 +43,7 @@ const Drawer = ({onClose, onRemoveCartItem, items = [], opened}) => {
 			<div className={styles.drawer}>
 				<h2 className="mb-30 d-flex justify-between">
 					Корзина 
-					<img onClick={onClose} src="/img/btn-remove.svg" alt="btn-close" />
+					<img onClick={onClose} src="img/btn-remove.svg" alt="btn-close" />
 				</h2>
 				{items.length > 0 
 					?
@@ -59,7 +59,7 @@ const Drawer = ({onClose, onRemoveCartItem, items = [], opened}) => {
 									<img 
 										onClick={() => onRemoveCartItem(i.id)} 
 										className="removeBtn" 
-										src="/img/btn-remove.svg" 
+										src="img/btn-remove.svg" 
 										alt="btn-remove" 
 									/>
 								</div>
@@ -80,7 +80,7 @@ const Drawer = ({onClose, onRemoveCartItem, items = [], opened}) => {
 							</ul>
 							<button disabled={isLoading} onClick={onClickOrder} className="greenBtn">
 								Оформить заказ 
-								<img src="/img/arrow.svg" alt="arrow" />
+								<img src="img/arrow.svg" alt="arrow" />
 							</button>
 						</div>
 					</>
@@ -91,7 +91,7 @@ const Drawer = ({onClose, onRemoveCartItem, items = [], opened}) => {
 							`Ваш заказ #${orderId} скоро будет передан курьерской доставке` :
 							"Добавте хотя бы одну пару кроссовок, что бы сделать заказ."
 						} 
-						img={isOrderComplete ? "/img/complete-order.jpg" : "/img/cart-empty.jpg"} 
+						img={isOrderComplete ? "img/complete-order.jpg" : "img/cart-empty.jpg"} 
 					/>
 				}
 			</div>
