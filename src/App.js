@@ -115,17 +115,15 @@ function App() {
 			setCartItems,
 		}}>
 			<div className="wrapper clear">
-				
-					<Drawer 
-						items={cartItems} 
-						onRemoveCartItem={onRemoveCartItem} 
-						onClose={() => setCartOpend(false)}
-						opened={cartOpened}
-					/> 
-				
+				<Drawer 
+					items={cartItems} 
+					onRemoveCartItem={onRemoveCartItem} 
+					onClose={() => setCartOpend(false)}
+					opened={cartOpened}
+				/> 
 				<Header onOpenCart={() => setCartOpend(true)} />
 				<Routes>
-					<Route path="/" element={<Home 
+					<Route path="" exact element={<Home 
 						items={items}
 						cartItems={cartItems}
 						searchValue={searchValue} 
@@ -135,8 +133,8 @@ function App() {
 						onAddToCart={onAddToCart}
 						isLoading={isLoading}
 					/>} />
-					<Route path="/favorites" element={<Favorites />} />
-					<Route path="/orders" element={<Orders />} />
+					<Route path="favorites" element={<Favorites />} />
+					<Route path="orders" element={<Orders />} />
 				</Routes>
 			</div>
 		</AppContext.Provider>
