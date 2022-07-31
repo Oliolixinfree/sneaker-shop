@@ -22,7 +22,6 @@ const Home = ({
                         key={index} 
                         onFavorites={(i) => onAddToFavorite(i)}
                         onPlus={(i) => onAddToCart(i)}
-                        // added={isItemAdded(i && i.id)}
                         loading={isLoading}
                         {...i}
                     />
