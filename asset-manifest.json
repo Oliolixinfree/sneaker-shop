@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/sneaker-shop/static/css/main.e40d3fb4.css",
-    "main.js": "/sneaker-shop/static/js/main.d12a0360.js",
+    "main.js": "/sneaker-shop/static/js/main.a8451396.js",
     "index.html": "/sneaker-shop/index.html",
     "main.e40d3fb4.css.map": "/sneaker-shop/static/css/main.e40d3fb4.css.map",
-    "main.d12a0360.js.map": "/sneaker-shop/static/js/main.d12a0360.js.map"
+    "main.a8451396.js.map": "/sneaker-shop/static/js/main.a8451396.js.map"
   },
   "entrypoints": [
     "static/css/main.e40d3fb4.css",
-    "static/js/main.d12a0360.js"
+    "static/js/main.a8451396.js"
   ]
 }
